@@ -64,11 +64,11 @@ const OrganisationPage = () => {
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
               onClick={() =>
-                enabledComponents[component] && navigate(`/organisation/${orgId}/${component}`)
+                enabledComponents[component] && navigate(`/organisation/${orgId}/${component}/workflowDesigner`)
               }
               disabled={!enabledComponents[component]}
             >
-              {enabledComponents[component] ? "Go to Service" : "Not Active"}
+              {enabledComponents[component] ? `Go to ${componentMapping[component]}` : "Not Active"}
             </button>
             {!enabledComponents[component] && (
               <p className="text-sm mt-2 text-red-500">
@@ -79,6 +79,7 @@ const OrganisationPage = () => {
         ))}
       </div>
     );
+    
   
 
   const handleDeleteOrganisation = async () => {
